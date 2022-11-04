@@ -1,19 +1,18 @@
 import Pet from "./pets.js"
-
-class Cat extends Pet{
-    constructor(name){
+class Cat extends Pet {
+    constructor(name) {
         super(name)
     }
-    play(){
+    play() {
         this.happiness += 25
         this.stamina -= 10
-        this.health -=10
+        this.health -= 10
         this.thirst -= 15
         this.hunger -= 15
         console.log(`You are using a laser pointer to play with ${this.name}`)
         return this
     }
-    look(){
+    look() {
         console.log("     //_//            __")
         console.log("   = o_o =_______    / / ")
         console.log("    __^      __(  ).__) )")

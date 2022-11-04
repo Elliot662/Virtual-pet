@@ -2,45 +2,42 @@ import Cat from "./pets/cat.js"
 import Dog from "./pets/dog.js"
 import Rabbit from "./pets/rabbit.js"
 import inquirer from "inquirer"
-let myPet
+let thePet
 
 const start = async () => {
-    const { typeOfPet } = await inquirer.prompt({
+    const { theAnimal } = await inquirer.prompt({
         type: "list",
-        name: "typeOfPet",
+        name: "theAnimal",
         message: "Please select your virtual pet",
         choices: [
             {
-                key: "a",
                 name: "cat",
-                value: "cat",
+                value: "theCat",
             },
             {
-                key: "b",
                 name: "dog",
-                value: "dog",
+                value: "theDog",
             },
             {
-                key: "c",
                 name: "rabbit",
-                value: "rabbit",
+                value: "theRabbit",
             },
         ],
     })
-    const { petName } = await inquirer.prompt({
+    const { theNameOfThePet } = await inquirer.prompt({
         type: "input",
-        name: "petName",
+        name: "theNameOfThePet",
         message: "Please name your pet",
     })
 
-    if (typeOfPet === "cat") {
-        myPet = new Cat(petName)
-    } else if (typeOfPet === "dog") {
-        myPet = new Dog(petName)
-    } else if (typeOfPet === "rabbit") {
-        myPet = new Rabbit(petName)
+    if (theAnimal === "theCat") {
+        thePet = new Cat(theNameOfThePet)
+    } else if (theAnimal === "theDog") {
+        thePet = new Dog(theNameOfThePet)
+    } else if (theAnimal === "theRabbit") {
+        thePet = new Rabbit(theNameOfThePet)
     }
-    console.log(`You have adopted ${myPet.name}`)
+    console.log(`You have adopted ${thePet.name}`)
     userChoice()
 }
 
@@ -51,55 +48,48 @@ let userChoice = async () => {
         message: "Please select an option",
         choices: [
             {
-                key: "a",
                 name: "See your pets status",
                 value: "status",
             },
             {
-                key: "b",
                 name: "Give your pet a drink",
                 value: "drink",
             },
             {
-                key: "c",
                 name: "Give your pet food",
                 value: "eat",
             },
             {
-                key: "d",
                 name: "Play with your pet",
                 value: "play",
             },
             {
-                Key: "e",
                 name: "Let your pet take a nap",
                 value: "sleep",
             },
             {
-                key: "f",
                 name: "Look at your pet",
                 value: "look",
             },
             {
-                key: "g",
                 name: "Exit the game",
                 value: "quit",
             },
         ],
     })
 
-    if (choice === "status") await myPet.status1()
-    if (choice === "drink") await myPet.drink()
-    if (choice === "eat") await myPet.eat()
-    if (choice === "play") await myPet.play()
-    if (choice === "sleep") await myPet.sleep()
-    if (choice === "look") await myPet.look()
+    if (choice === "status") await thePet.status1()
+    if (choice === "drink") await thePet.drink()
+    if (choice === "eat") await thePet.eat()
+    if (choice === "play") await thePet.play()
+    if (choice === "sleep") await thePet.sleep()
+    if (choice === "look") await thePet.look()
     if (choice === "quit") {
         const quitChoice = await confirmQuit()
         if (quitChoice) return
     }
 
-    myPet.status()
+    thePet.status()
     userChoice()
 }
 
@@ -110,12 +100,10 @@ let confirmQuit = async () => {
         message: "Do you wish to quit",
         choices: [
             {
-                key: "a",
                 name: "Yes",
                 value: "yes",
             },
             {
-                key: "b",
                 name: "No",
                 value: "no",
             },
