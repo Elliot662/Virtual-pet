@@ -17,9 +17,6 @@ class Pet {
             happiness: this.happiness
         })
     }
-    status1(){
-        console.log("Here is your pets stats")
-    }
     drink(){
         this.health += 5
         this.thirst += 20

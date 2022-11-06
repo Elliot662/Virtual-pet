@@ -12,6 +12,9 @@ class Cat extends Pet {
         console.log(`You are using a laser pointer to play with ${this.name}`)
         return this
     }
+    walk(){
+        console.log(`${this.name} is a cat and you don't take cats for walks`)
+    }
     look() {
         console.log("     //_//            __")
         console.log("   = o_o =_______    / / ")

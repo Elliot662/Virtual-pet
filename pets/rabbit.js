@@ -13,6 +13,9 @@ class Rabbit extends Pet{
         console.log(`You are playing tug of war with ${this.name}`)
         return this
     }
+    walk(){
+        console.log(`${this.name} is a rabbit that would rather room about inside`)
+    }
     look(){
         console.log(" /)/)")
         console.log("( -.-)")

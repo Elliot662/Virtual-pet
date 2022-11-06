@@ -1,6 +1,7 @@
 import Cat from "./pets/cat.js"
 import Dog from "./pets/dog.js"
 import Rabbit from "./pets/rabbit.js"
+import Lion from "./pets/lion.js"
 import inquirer from "inquirer"
 let thePet
 
@@ -22,6 +23,10 @@ const start = async () => {
                 name: "rabbit",
                 value: "theRabbit",
             },
+            {
+                name: "lion",
+                value: "theLion",
+            },
         ],
     })
     const { theNameOfThePet } = await inquirer.prompt({
@@ -36,7 +41,10 @@ const start = async () => {
         thePet = new Dog(theNameOfThePet)
     } else if (theAnimal === "theRabbit") {
         thePet = new Rabbit(theNameOfThePet)
+    } else if (theAnimal === "theLion") {
+        thePet = new Lion(theNameOfThePet)
     }
+
     console.log(`You have adopted ${thePet.name}`)
     userChoice()
 }
@@ -48,20 +56,20 @@ let userChoice = async () => {
         message: "Please select an option",
         choices: [
             {
-                name: "See your pets status",
-                value: "status",
+                name: "Give your pet food",
+                value: "eat",
             },
             {
                 name: "Give your pet a drink",
                 value: "drink",
             },
             {
-                name: "Give your pet food",
-                value: "eat",
-            },
-            {
                 name: "Play with your pet",
                 value: "play",
+            },
+            {
+                name: "Take your pet for a walk",
+                value: "walk",
             },
             {
                 name: "Let your pet take a nap",
@@ -78,10 +86,10 @@ let userChoice = async () => {
         ],
     })
 
-    if (choice === "status") await thePet.status1()
-    if (choice === "drink") await thePet.drink()
     if (choice === "eat") await thePet.eat()
+    if (choice === "drink") await thePet.drink()
     if (choice === "play") await thePet.play()
+    if (choice === "walk") await thePet.walk()
     if (choice === "sleep") await thePet.sleep()
     if (choice === "look") await thePet.look()
     if (choice === "quit") {
