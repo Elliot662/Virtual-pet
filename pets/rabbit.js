@@ -10,11 +10,14 @@ class Rabbit extends Pet{
         this.health -=10
         this.thirst -= 15
         this.hunger -= 15
+        this.neReport -= 10
         console.log(`You are playing tug of war with ${this.name}`)
         return this
     }
     walk(){
+        this.neReport += 1
         console.log(`${this.name} is a rabbit that would rather room about inside`)
+        return this
     }
     look(){
         console.log(" /)/)")

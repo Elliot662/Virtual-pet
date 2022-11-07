@@ -50,6 +50,15 @@ const start = async () => {
 }
 
 let userChoice = async () => {
+    if(thePet.health <= 0){
+        thePet.passOut()
+    }
+    if(thePet.stamina <= 0){
+        thePet.passOut2()
+    }
+    if(thePet.neReport >= 100){
+        thePet.report()
+    }
     const { choice } = await inquirer.prompt({
         type: "list",
         name: "choice",
@@ -95,6 +104,25 @@ let userChoice = async () => {
     if (choice === "quit") {
         const quitChoice = await confirmQuit()
         if (quitChoice) return
+    }
+    
+    if(thePet.health > 100){
+        thePet.health = 100
+    }
+    if(thePet.hunger > 200){
+        thePet.hunger = 200
+    }
+    if(thePet.thirst > 200){
+        thePet.thirst = 200
+    }
+    if(thePet.happiness > 500){
+        thePet.happiness = 500
+    }
+    if(thePet.neReport < 0){
+        thePet.neReport = 0
+    }
+    if(thePet.neReport >= 100){
+        thePet.neReport = 90
     }
 
     thePet.status()

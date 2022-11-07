@@ -6,6 +6,7 @@ class Pet {
         this.thirst = 60
         this.hunger = 60
         this.happiness = 80
+        this.neReport = 0
     }
     status(){
         return console.table({
@@ -14,7 +15,8 @@ class Pet {
             stamina: this.stamina,
             thirst: this.thirst,
             hunger: this.hunger,
-            happiness: this.happiness
+            happiness: this.happiness,
+            reported: this.neReport,
         })
     }
     drink(){
@@ -22,6 +24,7 @@ class Pet {
         this.thirst += 20
         this.hunger -= 5
         this.happiness -= 1
+        this.neReport -= 1
         console.log(`${this.name} just had a drink`)
         return this
     }
@@ -30,6 +33,7 @@ class Pet {
         this.hunger += 20
         this.thirst -= 5
         this.happiness -= 1
+        this.neReport -= 1
         console.log(`${this.name} just eat some food`)
         return this
     }
@@ -39,8 +43,41 @@ class Pet {
         this.hunger -= 10
         this.thirst -= 10
         this.happiness -= 10
+        this.neReport -= 1
         console.log(`${this.name} is having a nap`)
         return this
+    }
+    passOut(){
+        if(this.stamina >= 60){
+            this.stamina -= 50
+        } else if(this.stamina <= 10){
+            this.stamina = 5
+        } else{
+            this.stamina = 10
+        }
+        this.health = 10
+        this.hunger -= 20
+        this.thirst -= 20
+        this.happiness -= 25
+        this.neReport += 20
+        console.log(`${this.name} has passed out`)
+        return this
+    }
+    passOut2(){
+        if(this.health >= 11){
+            this.health -= 10
+        } else {
+            this.health = 1
+        }
+        this.stamina = 60
+        this.hunger -= 10
+        this.thirst -= 10
+        this.happiness -= 10
+        this.neReport += 15
+        console.log(`${this.name} has passed out due to exhaustion`)
+    }
+    report(){
+        console.log("Your neighbours have reported you to rspca for animal abuse")
     }
 }
 

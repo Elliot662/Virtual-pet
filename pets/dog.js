@@ -10,6 +10,7 @@ class Dog extends Pet{
         this.health -=10
         this.thirst -= 15
         this.hunger -= 15
+        this.neReport -= 10
         console.log(`You are playing frisbee with ${this.name}`)
         return this
     }
@@ -19,6 +20,7 @@ class Dog extends Pet{
         this.health -=10
         this.thirst -= 15
         this.hunger -= 15
+        this.neReport -= 10
         console.log(`You have taken ${this.name} for a walk`)
         return this
     }
