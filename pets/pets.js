@@ -7,6 +7,7 @@ class Pet {
         this.hunger = 60
         this.happiness = 80
         this.neReport = 0
+        this.reported = 0
     }
     status(){
         return console.table({
@@ -16,7 +17,6 @@ class Pet {
             thirst: this.thirst,
             hunger: this.hunger,
             happiness: this.happiness,
-            reported: this.neReport,
         })
     }
     drink(){
@@ -75,9 +75,18 @@ class Pet {
         this.happiness -= 10
         this.neReport += 15
         console.log(`${this.name} has passed out due to exhaustion`)
+        return this
     }
     report(){
+        this.reported += 1
         console.log("Your neighbours have reported you to rspca for animal abuse")
+        return this
+    }
+    investigation(){
+        console.log("The rspca have opened an investigation in to possible animal abuse")
+    }
+    forcedQuit(){
+        console.log(`The rspca have found evidence of animal abuse and have taken ${this.name}`)
     }
 }
 

@@ -59,6 +59,12 @@ let userChoice = async () => {
     if(thePet.neReport >= 100){
         thePet.report()
     }
+    if(thePet.reported >= 3){
+        thePet.investigation()
+    }
+    if(thePet.reported >= 5){
+        thePet.forcedQuit()
+    }
     const { choice } = await inquirer.prompt({
         type: "list",
         name: "choice",
@@ -122,11 +128,14 @@ let userChoice = async () => {
         thePet.neReport = 0
     }
     if(thePet.neReport >= 100){
-        thePet.neReport = 90
+        thePet.neReport = 60
     }
 
     thePet.status()
-    userChoice()
+
+    if(thePet.reported < 5){
+        userChoice()
+    } 
 }
 
 let confirmQuit = async () => {
